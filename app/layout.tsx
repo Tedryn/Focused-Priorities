@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en">
       <body className={`${cormorant.variable} ${montserrat.variable} antialiased`}>
         {children}
       </body>

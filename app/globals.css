@@ -3,26 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --background-light: #FAF9F6;
-  --text-light: #1A1A1A;
-  --background-dark: #0A0A0A;
-  --text-dark: #E8E4DF;
-}
-
-[data-theme='dark'] {
-  --background: var(--background-dark);
-  --text: var(--text-dark);
-}
-
-[data-theme='light'] {
-  --background: var(--background-light);
-  --text: var(--text-light);
+  --background: #FAF9F7;
+  --foreground: #1E1E1E;
+  --card: #FFFFFF;
+  --border: #E7E5E4;
+  --muted: #666666;
+  --accent: #7A6A58;
 }
 
 body {
   background-color: var(--background);
-  color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--foreground);
+  font-family: var(--font-montserrat);
 }
 
 @layer utilities {

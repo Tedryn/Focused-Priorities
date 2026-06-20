@@ -26,7 +26,7 @@ Build a clean, modern photography portfolio website that also functions as a sma
 
 - **Visual references:** Leica, Fujifilm, Kinfolk Magazine, printed photography books
 - **Color palette:** Background `#FAF9F7`, Cards `#FFFFFF`, Primary text `#1E1E1E`, Secondary text `#666666`, Borders `#E7E5E4`, Accent `#7A6A58` (used sparingly)
-- **Typography:** Playfair Display (headings), Inter (body)
+- **Typography:** Cormorant Garamond (headings), Montserrat (body)
 - **Layout:** Max content width 1200px, text max width 750px, 8px spacing scale, 12px border radius, subtle shadows, 150-250ms transitions
 - **Navigation:** Non-sticky. Desktop horizontal nav, mobile hamburger with slide-down
 - **Feel:** Warm, intentional, quiet, professional, human, curated, timeless
@@ -183,9 +183,21 @@ Reading time is computed at build time from the markdown body using `reading-tim
 
 ## Current Phase
 
-**Phase 0: Architecture Review — COMPLETE**
+**Phase 1: Project Scaffolding and Foundation — COMPLETE**
 
-All decisions finalized and documented. Awaiting approval to proceed to Phase 1.
+Completed:
+- `package.json` with Next.js 15, React 19, Tailwind CSS 3.4, TypeScript 5.7
+- `npm install` — 107 packages installed
+- `tsconfig.json` — strict mode, path aliases (`@/*`)
+- `next.config.ts` — R2 remotePatterns configured for `pub-bb6c9d94d00f45b68ba134ebabec27ac.r2.dev`
+- `postcss.config.mjs` — Tailwind + Autoprefixer
+- `tailwind.config.ts` — Phase 0 design tokens (background, foreground, card, border, muted, accent), custom fonts (Cormorant Garamond, Montserrat)
+- `app/globals.css` — Tailwind directives, CSS custom properties for theme switching, text-balance utility
+- `app/layout.tsx` — Root layout with Google Fonts (next/font), metadata, theme attribute
+- `.gitignore` — node_modules, .next, env files, etc.
+- Git initialized, initial commit `204f3a2`
+
+Note: `create-next-app` could not run due to existing documentation files in the directory. All files were created manually with equivalent configuration.
 
 ---
 
@@ -193,7 +205,7 @@ All decisions finalized and documented. Awaiting approval to proceed to Phase 1.
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Project Scaffolding and Foundation | Not started |
+| 1 | Project Scaffolding and Foundation | COMPLETE |
 | 2 | Content Layer and Data Utilities | Not started |
 | 3 | Shared Components | Not started |
 | 4 | Home Page | Not started |

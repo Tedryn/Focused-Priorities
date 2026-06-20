@@ -5,7 +5,6 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -13,14 +12,12 @@ const config: Config = {
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       colors: {
-        light: {
-          bg: '#FAF9F6',
-          text: '#1A1A1A',
-        },
-        dark: {
-          bg: '#0A0A0A',
-          text: '#E8E4DF',
-        },
+        background: '#FAF9F7',
+        foreground: '#1E1E1E',
+        card: '#FFFFFF',
+        border: '#E7E5E4',
+        muted: '#666666',
+        accent: '#7A6A58',
       },
     },
   },
