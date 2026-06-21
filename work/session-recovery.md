@@ -9,6 +9,7 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
 - `d7e2fb0` — Design token alignment (fonts, colors, dark mode removal)
+- `842c92e` — Session recovery document created
 
 ## Folder Structure
 ```
@@ -16,7 +17,7 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 /components             ← Shared UI components (Phase 3)
 /content/gallery        ← .md gallery data (Phase 2+)
 /content/blog           ← .md blog posts (Phase 2+)
-/lib                     ← content.ts, types.ts, markdown.ts (Phase 2)
+/lib                    ← content.ts, types.ts, markdown.ts (Phase 2)
 /public/robots.txt
 ```
 
@@ -27,7 +28,10 @@ Next.js 15 (App Router), React 19, TypeScript 5.7 (strict), Tailwind CSS 3.4 + @
 next, react, react-dom, typescript, tailwindcss, @tailwindcss/typography
 
 ## Planned for Phase 2
-gray-matter, remark, remark-html, reading-time. Total: 107 packages.
+- gray-matter
+- remark
+- remark-html
+- reading-time
 
 ## Design Decisions (Finalized)
 - **Colors:** bg `#FAF9F7`, card `#FFFFFF`, text `#1E1E1E`, muted `#666666`, border `#E7E5E4`, accent `#7A6A58` (sparse)
