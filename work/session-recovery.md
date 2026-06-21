@@ -24,7 +24,10 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 Next.js 15 (App Router), React 19, TypeScript 5.7 (strict), Tailwind CSS 3.4 + @tailwindcss/typography, Cloudflare Pages (hosting), Cloudflare R2 (images).
 
 ## Dependencies Installed (npm)
-next, react, react-dom, typescript, tailwindcss, @tailwindcss/typography, gray-matter, remark, remark-html, reading-time. Total: 107 packages.
+next, react, react-dom, typescript, tailwindcss, @tailwindcss/typography
+
+## Planned for Phase 2
+gray-matter, remark, remark-html, reading-time. Total: 107 packages.
 
 ## Design Decisions (Finalized)
 - **Colors:** bg `#FAF9F7`, card `#FFFFFF`, text `#1E1E1E`, muted `#666666`, border `#E7E5E4`, accent `#7A6A58` (sparse)
