@@ -1,1 +1,1 @@
-vibe coded photo protfolio / blog
+vibe coded photo portfolio / blog
