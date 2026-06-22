@@ -66,3 +66,11 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 - Phase boundaries are strict hard stops — never cross them without explicit command.
 - No system font fallbacks. Font loading failure = blank until fonts load (acceptable).
 - Only write English text visible to the end user in code.
+
+## Current Git State
+Latest commit: d7e2fb0
+Phase 2 has NOT started.
+No Phase 2 files exist.
+No content parser utilities exist.
+No markdown templates exist.
+No additional dependencies installed beyond Phase 1.
