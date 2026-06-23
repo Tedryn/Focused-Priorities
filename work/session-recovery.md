@@ -4,12 +4,13 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 1 COMPLETE** — Scaffolding done. Ready for Phase 2 (Content Layer).
+**Phase 2 COMPLETE — Content Layer and Data Utilities done. Ready for Phase 3 (Shared Components)
 
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
 - `d7e2fb0` — Design token alignment (fonts, colors, dark mode removal)
 - `842c92e` — Session recovery document created
+- `6d6a1ec — Phase 2: Content layer and data utilities
 
 ## Folder Structure
 ```
@@ -25,13 +26,17 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 Next.js 15 (App Router), React 19, TypeScript 5.7 (strict), Tailwind CSS 3.4 + @tailwindcss/typography, Cloudflare Pages (hosting), Cloudflare R2 (images).
 
 ## Dependencies Installed (npm)
-next, react, react-dom, typescript, tailwindcss, @tailwindcss/typography
+next
+react
+react-dom
+typescript
+tailwindcss
+@tailwindcss/typography
+gray-matter
+remark
+remark-html
+reading-time
 
-## Planned for Phase 2
-- gray-matter
-- remark
-- remark-html
-- reading-time
 
 ## Design Decisions (Finalized)
 - **Colors:** bg `#FAF9F7`, card `#FFFFFF`, text `#1E1E1E`, muted `#666666`, border `#E7E5E4`, accent `#7A6A58` (sparse)
@@ -52,11 +57,10 @@ Manual upload to Cloudflare R2 → copy URL → paste into markdown frontmatter 
 No database, no auth, no admin dashboard, no image upload API, no server-side image transformation, no analytics SDKs, no state management libraries, no CI/CD workflow files (unless requested later).
 
 ## Remaining Phases (Sequential, Approval-Per-Phase)
-2. Content Layer & Data Utilities (read/parse markdown at build time)
-3. Shared Components (Navigation, Footer, Hero, GalleryCard, PhotoGrid, Lightbox, BlogCard, MarkdownRenderer, SectionHeading)
+3. Shared Components
 4. Home Page
-5. Gallery Pages (`/gallery`, `/gallery/[slug]`)
-6. Blog Pages (`/blog`, `/blog/[slug]`)
+5. Gallery Pages
+6. Blog Pages
 7. About Page
 8. SEO & Performance Optimization
 9. Deployment Configuration
@@ -68,9 +72,23 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 - Only write English text visible to the end user in code.
 
 ## Current Git State
-Latest commit: d7e2fb0
-Phase 2 has NOT started.
-No Phase 2 files exist.
-No content parser utilities exist.
-No markdown templates exist.
-No additional dependencies installed beyond Phase 1.
+Latest commit: 6d6a1ec
+Phase 2 COMPLETE.
+
+Added dependencies:
+- gray-matter
+- reading-time
+- remark
+- remark-html
+
+Created:
+- /lib/types.ts
+- /lib/markdown.ts
+- /lib/content.ts
+- /content/gallery/
+- /content/blog/
+
+TypeScript verification passed:
+npx tsc --noEmit
+
+Ready for Phase 3: Shared Components.
