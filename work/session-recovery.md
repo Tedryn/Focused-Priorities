@@ -10,7 +10,8 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 - `204f3a2` — Initial commit (scaffold files)
 - `d7e2fb0` — Design token alignment (fonts, colors, dark mode removal)
 - `842c92e` — Session recovery document created
-- `6d6a1ec — Phase 2: Content layer and data utilities
+- `570d701` — Phase 2: Content layer and data utilities
+- `d466491` — Added parser testing fixtures
 
 ## Folder Structure
 ```
@@ -72,7 +73,8 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 - Only write English text visible to the end user in code.
 
 ## Current Git State
-Latest commit: 6d6a1ec
+Latest commit: d466491
+
 Phase 2 COMPLETE.
 
 Added dependencies:
@@ -87,6 +89,10 @@ Created:
 - /lib/content.ts
 - /content/gallery/
 - /content/blog/
+
+Temporary fixture content added:
+- content/gallery/Hello-world.md
+- content/blog/Hello-world.md
 
 TypeScript verification passed:
 npx tsc --noEmit
