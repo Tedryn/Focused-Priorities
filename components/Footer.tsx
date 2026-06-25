@@ -30,10 +30,10 @@ export default function Footer() {
         {/* Copyright + Tagline */}
         <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between">
           <p className="font-montserrat text-sm tracking-wide text-muted">
-            &copy; {new Date().getFullYear()} Jeffrey Andersen. All rights reserved.
+            &copy; {new Date().getFullYear()} Jef. All rights reserved.
           </p>
           <a
-            href="https://github.com"
+            href="https://github.com/Tedryn"
             target="_blank"
             rel="noopener noreferrer"
             className="font-montserrat text-sm tracking-wide text-muted transition-colors duration-200 hover:text-foreground"
