@@ -8,6 +8,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        cormorant: ['var(--font-cormorant)', 'serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif'],
         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
       },
