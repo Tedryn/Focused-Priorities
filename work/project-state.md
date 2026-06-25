@@ -201,13 +201,30 @@ Note: `create-next-app` could not run due to existing documentation files in the
 
 ---
 
+## Phase 3 Progress: Shared Components
+
+**Status:** In progress (4 of 8 components complete)
+
+| # | Component | File | Status |
+|---|-----------|------|--------|
+| 1 | Navigation | `components/Navigation.tsx` | COMPLETE — Client component, desktop horizontal nav + mobile hamburger |
+| 2 | Footer | `components/Footer.tsx` | COMPLETE — Server component, links · divider · copyright · GitHub |
+| 3 | SectionHeading | `components/SectionHeading.tsx` | COMPLETE — Server component, Cormorant heading + optional subtitle |
+| 4 | GalleryCard | `components/GalleryCard.tsx` | COMPLETE — Server component, image zoom hover, meta line |
+| 5 | BlogCard | `components/BlogCard.tsx` | Not started |
+| 6 | PhotoGrid | `components/PhotoGrid.tsx` | Not started |
+| 7 | Lightbox | `components/Lightbox.tsx` | Not started |
+| 8 | MarkdownRenderer | `components/MarkdownRenderer.tsx` | Not started |
+
+---
+
 ## Remaining Phases
 
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Project Scaffolding and Foundation | COMPLETE |
-| 2 | Content Layer and Data Utilities | Not started |
-| 3 | Shared Components | Not started |
+| 2 | Content Layer and Data Utilities | In progress |
+| 3 | Shared Components | In progress (4/8) |
 | 4 | Home Page | Not started |
 | 5 | Gallery Pages | Not started |
 | 6 | Blog Pages | Not started |
