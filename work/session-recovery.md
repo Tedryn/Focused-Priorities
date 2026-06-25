@@ -4,7 +4,19 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 2 COMPLETE — Content Layer and Data Utilities done. Ready for Phase 3 (Shared Components)
+**Phase 3 IN PROGRESS — Shared Components (5 of 8 complete)**
+
+Completed components:
+1. Navigation (`components/Navigation.tsx`) — Client component, desktop + mobile hamburger
+2. Footer (`components/Footer.tsx`) — Server component, links · divider · copyright · GitHub
+3. SectionHeading (`components/SectionHeading.tsx`) — Server component, Cormorant heading + subtitle
+4. GalleryCard (`components/GalleryCard.tsx`) — Server component, image zoom hover, meta line
+5. BlogCard (`components/BlogCard.tsx`) — Server component, horizontal layout with image/text-only variants
+
+Remaining components:
+6. PhotoGrid (`components/PhotoGrid.tsx`)
+7. Lightbox (`components/Lightbox.tsx`)
+8. MarkdownRenderer (`components/MarkdownRenderer.tsx`)
 
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
@@ -12,6 +24,8 @@ Personal photography portfolio + blog for Jeffrey Andersen. Static site, no data
 - `842c92e` — Session recovery document created
 - `570d701` — Phase 2: Content layer and data utilities
 - `d466491` — Added parser testing fixtures
+- `c9347b1` — Phase 3 checkpoint - components 1-4 complete
+- `3ea994a` — Phase 3 checkpoint - component 5 (BlogCard) complete
 
 ## Folder Structure
 ```
@@ -73,28 +87,18 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 - Only write English text visible to the end user in code.
 
 ## Current Git State
-Latest commit: d466491
+Latest commit: 3ea994a
 
-Phase 2 COMPLETE.
+Phase 2 COMPLETE. Phase 3 IN PROGRESS (5 of 8 components done).
 
-Added dependencies:
-- gray-matter
-- reading-time
-- remark
-- remark-html
+Completed in Phase 3:
+- components/Navigation.tsx (client component)
+- components/Footer.tsx (server component)
+- components/SectionHeading.tsx (server component)
+- components/GalleryCard.tsx (server component)
+- components/BlogCard.tsx (server component)
 
-Created:
-- /lib/types.ts
-- /lib/markdown.ts
-- /lib/content.ts
-- /content/gallery/
-- /content/blog/
-
-Temporary fixture content added:
-- content/gallery/Hello-world.md
-- content/blog/Hello-world.md
-
-TypeScript verification passed:
-npx tsc --noEmit
-
-Ready for Phase 3: Shared Components.
+Remaining in Phase 3:
+- components/PhotoGrid.tsx
+- components/Lightbox.tsx
+- components/MarkdownRenderer.tsx
