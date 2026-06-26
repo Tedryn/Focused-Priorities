@@ -183,38 +183,20 @@ Reading time is computed at build time from the markdown body using `reading-tim
 
 ## Current Phase
 
-**Phase 1: Project Scaffolding and Foundation — COMPLETE**
+**Phase 3: Shared Components — COMPLETE** (commit `d85cf1f`)
 
-Completed:
-- `package.json` with Next.js 15, React 19, Tailwind CSS 3.4, TypeScript 5.7
-- `npm install` — 107 packages installed
-- `tsconfig.json` — strict mode, path aliases (`@/*`)
-- `next.config.ts` — R2 remotePatterns configured for `pub-bb6c9d94d00f45b68ba134ebabec27ac.r2.dev`
-- `postcss.config.mjs` — Tailwind + Autoprefixer
-- `tailwind.config.ts` — Phase 0 design tokens (background, foreground, card, border, muted, accent), custom fonts (Cormorant Garamond, Montserrat)
-- `app/globals.css` — Tailwind directives, CSS custom properties for theme switching, text-balance utility
-- `app/layout.tsx` — Root layout with Google Fonts (next/font), metadata, theme attribute
-- `.gitignore` — node_modules, .next, env files, etc.
-- Git initialized, initial commit `204f3a2`
+All 8 shared components created, TypeScript verified (`npx tsc --noEmit`), pushed to `origin/main`.
 
-Note: `create-next-app` could not run due to existing documentation files in the directory. All files were created manually with equivalent configuration.
-
----
-
-## Phase 3 Progress: Shared Components
-
-**Status:** In progress (5 of 8 components complete)
-
-| # | Component | File | Status |
-|---|-----------|------|--------|
-| 1 | Navigation | `components/Navigation.tsx` | COMPLETE — Client component, desktop horizontal nav + mobile hamburger |
-| 2 | Footer | `components/Footer.tsx` | COMPLETE — Server component, links · divider · copyright · GitHub |
-| 3 | SectionHeading | `components/SectionHeading.tsx` | COMPLETE — Server component, Cormorant heading + optional subtitle |
-| 4 | GalleryCard | `components/GalleryCard.tsx` | COMPLETE — Server component, image zoom hover, meta line |
-| 5 | BlogCard | `components/BlogCard.tsx` | COMPLETE — Server component, horizontal layout with image/text-only variants |
-| 6 | PhotoGrid | `components/PhotoGrid.tsx` | Not started |
-| 7 | Lightbox | `components/Lightbox.tsx` | Not started |
-| 8 | MarkdownRenderer | `components/MarkdownRenderer.tsx` | Not started |
+| # | Component | File | Type | Features |
+|---|-----------|------|------|----------|
+| 1 | Navigation | `components/Navigation.tsx` | Client | Desktop horizontal nav + mobile hamburger slide-down |
+| 2 | Footer | `components/Footer.tsx` | Server | Links · divider · copyright · GitHub badge |
+| 3 | SectionHeading | `components/SectionHeading.tsx` | Server | Cormorant Garamond heading + muted subtitle |
+| 4 | GalleryCard | `components/GalleryCard.tsx` | Server | Image zoom hover, meta line (date · film) |
+| 5 | BlogCard | `components/BlogCard.tsx` | Client | Horizontal layout with image/text-only variants |
+| 6 | PhotoGrid | `components/PhotoGrid.tsx` | Server | Responsive grid, lazy loading, caption toggle |
+| 7 | Lightbox | `components/Lightbox.tsx` | Client | Keyboard + swipe nav, film metadata, empty guard |
+| 8 | MarkdownRenderer | `components/MarkdownRenderer.tsx` | Server | remark pipeline + prose typography |
 
 ---
 
@@ -223,8 +205,8 @@ Note: `create-next-app` could not run due to existing documentation files in the
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Project Scaffolding and Foundation | COMPLETE |
-| 2 | Content Layer and Data Utilities | In progress |
-| 3 | Shared Components | In progress (5/8) |
+| 2 | Content Layer and Data Utilities | COMPLETE |
+| 3 | Shared Components | COMPLETE (`d85cf1f`) |
 | 4 | Home Page | Not started |
 | 5 | Gallery Pages | Not started |
 | 6 | Blog Pages | Not started |
@@ -233,3 +215,5 @@ Note: `create-next-app` could not run due to existing documentation files in the
 | 9 | Deployment Configuration | Not started |
 
 Execution order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9. Each phase stops pending approval.
+
+Project is ready to begin Phase 4 — Home Page.
