@@ -4,7 +4,7 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 3 IN PROGRESS — Shared Components (5 of 8 complete)**
+**Phase 3 COMPLETE — Shared Components (8 of 8)**
 
 Completed components:
 1. Navigation (`components/Navigation.tsx`) — Client component, desktop + mobile hamburger
@@ -12,11 +12,9 @@ Completed components:
 3. SectionHeading (`components/SectionHeading.tsx`) — Server component, Cormorant heading + subtitle
 4. GalleryCard (`components/GalleryCard.tsx`) — Server component, image zoom hover, meta line
 5. BlogCard (`components/BlogCard.tsx`) — Server component, horizontal layout with image/text-only variants
-
-Remaining components:
-6. PhotoGrid (`components/PhotoGrid.tsx`)
-7. Lightbox (`components/Lightbox.tsx`)
-8. MarkdownRenderer (`components/MarkdownRenderer.tsx`)
+6. PhotoGrid (`components/PhotoGrid.tsx`) — Server component, responsive grid, lazy images, optional captions
+7. Lightbox (`components/Lightbox.tsx`) — Client component, dark overlay, keyboard + swipe navigation
+8. MarkdownRenderer (`components/MarkdownRenderer.tsx`) — Server component, remark pipeline + prose typography
 
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
@@ -89,16 +87,16 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 ## Current Git State
 Latest commit: 3ea994a
 
-Phase 2 COMPLETE. Phase 3 IN PROGRESS (5 of 8 components done).
+Phase 2 COMPLETE. Phase 3 COMPLETE (8 of 8 components done).
 
 Completed in Phase 3:
 - components/Navigation.tsx (client component)
 - components/Footer.tsx (server component)
 - components/SectionHeading.tsx (server component)
 - components/GalleryCard.tsx (server component)
-- components/BlogCard.tsx (server component)
+- components/BlogCard.tsx (client component)
+- components/PhotoGrid.tsx (server component)
+- components/Lightbox.tsx (client component)
+- components/MarkdownRenderer.tsx (server component)
 
-Remaining in Phase 3:
-- components/PhotoGrid.tsx
-- components/Lightbox.tsx
-- components/MarkdownRenderer.tsx
+Next phase: Phase 4 — Home Page
