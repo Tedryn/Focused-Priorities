@@ -1,10 +1,17 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { loadGalleries, loadBlogPosts } from "@/lib/content";
 import GalleryCard from "@/components/GalleryCard";
 import BlogCard from "@/components/BlogCard";
 import SectionHeading from "@/components/SectionHeading";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Jeffrey Andersen — Photography",
+  description:
+    "Capturing light, telling stories. A personal photography portfolio and journal by Jeffrey Andersen.",
+};
 
 export default async function HomePage() {
   const galleries = await loadGalleries();
