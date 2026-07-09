@@ -4,7 +4,7 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 3 COMPLETE — Shared Components (8 of 8)**
+**Phase 5 COMPLETE — Gallery Pages**
 
 Completed components:
 1. Navigation (`components/Navigation.tsx`) — Client component, desktop + mobile hamburger
@@ -15,6 +15,10 @@ Completed components:
 6. PhotoGrid (`components/PhotoGrid.tsx`) — Server component, responsive grid, lazy images, optional captions
 7. Lightbox (`components/Lightbox.tsx`) — Client component, dark overlay, keyboard + swipe navigation
 8. MarkdownRenderer (`components/MarkdownRenderer.tsx`) — Server component, remark pipeline + prose typography
+
+Completed pages (Phase 5):
+9. Gallery Index (`app/gallery/page.tsx`) — Server component, responsive grid of gallery cards, search/filter, sort by date/title/photos
+10. Gallery Detail (`app/gallery/[slug]/page.tsx`) — SSG page, photo lightbox via LightboxClient bridge, prev/next nav, related galleries, SEO metadata
 
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
@@ -71,9 +75,7 @@ Manual upload to Cloudflare R2 → copy URL → paste into markdown frontmatter 
 No database, no auth, no admin dashboard, no image upload API, no server-side image transformation, no analytics SDKs, no state management libraries, no CI/CD workflow files (unless requested later).
 
 ## Remaining Phases (Sequential, Approval-Per-Phase)
-3. Shared Components
-4. Home Page
-5. Gallery Pages
+1–5: COMPLETE
 6. Blog Pages
 7. About Page
 8. SEO & Performance Optimization
@@ -86,19 +88,29 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 - Only write English text visible to the end user in code.
 
 ## Current Git State
-Latest commit: d85cf1f
+Latest commit: d85cf1f (Phase 3 shared components, pushed to origin/main)
 Branch: main (up to date with origin/main)
+Uncommitted: app/gallery/ (2 new files), components/LightboxClient.tsx
 
-Phase 2 COMPLETE. Phase 3 COMPLETE (8 of 8 components done, pushed).
+**Phase 5 implemented but NOT yet committed.**
 
-Completed in Phase 3:
-- components/Navigation.tsx (client component)
-- components/Footer.tsx (server component)
-- components/SectionHeading.tsx (server component)
-- components/GalleryCard.tsx (server component)
-- components/BlogCard.tsx (client component)
-- components/PhotoGrid.tsx (server component)
-- components/Lightbox.tsx (client component)
-- components/MarkdownRenderer.tsx (server component)
+## Phase 5 — Gallery Pages (Finalized)
 
-Project is ready to begin Phase 4 — Home Page.
+### New Pages Created
+- **`app/gallery/page.tsx`** — Gallery index page. Responsive grid of `GalleryCard` components, search bar filtering by title/description, dropdown sort (Most Recent / Title A–Z / Photo Count ↓). Reuses `GalleryCard`, `SectionHeading`, and existing typography/design tokens.
+
+### New Components Created
+- **`components/LightboxClient.tsx`** — Client-side lightbox bridge. Converts grid photos into a clickable stateful gallery; on photo click, opens the existing `Lightbox` component with full navigation (keyboard + swipe). Uses `use client` directive to bridge server-rendered page content with interactive lightbox behavior.
+
+### Gallery Detail Page
+- **`app/gallery/[slug]/page.tsx`** — SSG page using `generateStaticParams`. Displays gallery title, description, date, and photo grid via `PhotoGrid`. Each photo is clickable → opens `LightboxClient`. Includes "Previous Gallery" / "Next Gallery" navigation, related galleries section (tag-based matching), and back-to-gallery link. Generates `<title>`, `<meta description>`, Open Graph tags, and JSON-LD `ImageGallery` structured data.
+
+### Design Decisions Finalized
+- **Lightbox trigger:** Clicking any photo in the gallery detail grid opens the lightbox directly; no separate "expand" button needed on individual photos.
+- **Related galleries algorithm:** Matches by shared frontmatter tags. Shows up to 3 related galleries sorted by date descending. Skips current gallery if tag overlap results in a duplicate match.
+- **Sort options on index:** Default is "Most Recent" (date desc). Options: title A–Z, photo count descending. All sorting is client-side via `useState`/`useMemo`.
+- **SEO:** Each gallery detail page generates unique metadata at build time using frontmatter + R2 URLs for Open Graph and structured data.
+
+---
+
+Project is ready to begin Phase 6 — Blog Pages.
