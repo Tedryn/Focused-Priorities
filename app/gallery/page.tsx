@@ -5,9 +5,37 @@ import SectionHeading from "@/components/SectionHeading";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+
 export const metadata: Metadata = {
-  title: "Gallery — Jeffrey Andersen Photography",
-  description: "Browse all photography galleries by subject and collection.",
+  title: "Gallery — Jef Photography",
+  description:
+    "Browse all photography galleries by subject and collection. Landscape, portrait, and editorial work.",
+  alternates: {
+    canonical: `${baseUrl}/gallery`,
+  },
+  openGraph: {
+    title: "Gallery — Jef Photography",
+    description:
+      "Browse all photography galleries by subject and collection.",
+    type: "website",
+    url: "/gallery",
+    siteName: "Jef Photography",
+    images: [
+      {
+        url: "/images/og-gallery.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Gallery — Jef Photography",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gallery — Jef Photography",
+    description:
+      "Browse all photography galleries by subject and collection.",
+  },
 };
 
 export default async function GalleryPage() {

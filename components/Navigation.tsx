@@ -28,7 +28,7 @@ export default function Navigation() {
           href="/"
           className="font-cormorant text-2xl font-semibold tracking-wide text-foreground transition-colors duration-200 hover:text-accent"
         >
-          Jeffrey Andersen
+           Jef
         </Link>
 
         {/* Desktop Links */}

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { loadBlogPosts, getBlogPostBySlug } from "@/lib/content";
 import SectionHeading from "@/components/SectionHeading";
@@ -28,31 +29,71 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
       ).slice(0, 3)
     : [];
 
+  // Calculate reading time if not provided
+  const wordCount = (post.excerpt || "").split(/\s+/).length;
+  const estimatedReadingTime = post.readingTime ?? {
+    text: `${Math.max(1, Math.round(wordCount / 200))} min read`,
+    minutes: Math.max(1, Math.round(wordCount / 200)),
+  };
+
+  // Build JSON-LD Article structured data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: "Jeffrey Andersen",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Jeffrey Andersen Photography",
+      logo: {
+        "@type": "ImageObject",
+        url: "/images/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://jeffreyandersenphotography.com/blog/${post.slug}`,
+    },
+    image: post.featuredImage || undefined,
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD Article structured data */}
+      <Script
+        id={`blog-post-schema-${post.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Navigation />
 
       <main className="mx-auto max-w-[800px] px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <section className="py-16 md:py-24 text-center">
-          <h1 className="font-cormorant text-4xl font-normal tracking-wide text-foreground md:text-5xl lg:text-6xl">
+        <article className="py-16 md:py-24 text-center" aria-labelledby="post-heading">
+          <h1 id="post-heading" className="font-cormorant text-4xl font-normal tracking-wide text-foreground md:text-5xl lg:text-6xl">
             {post.title}
           </h1>
 
           {/* Meta */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-montserrat text-sm tracking-wide text-muted">
             <time dateTime={post.date}>{post.date}</time>
-            {post.readingTime && (
+            {estimatedReadingTime && (
               <>
                 <span className="text-border">·</span>
-                <span>{post.readingTime.text}</span>
+                <span>{estimatedReadingTime.text}</span>
               </>
             )}
-            {postTags.length > 0 && (
+            {(post.tags?.length ?? 0) > 0 && (
               <>
                 <span className="text-border">·</span>
-                <div className="flex flex-wrap items-center gap-1.5 justify-center">
-                  {postTags.map((tag) => (
+                <div className="flex flex-wrap items-center gap-1.5 justify-center" aria-label="Post tags">
+                  {post.tags!.map((tag) => (
                     <span key={tag} className="rounded-full border border-border px-3 py-0.5 text-xs tracking-wide">
                       {tag}
                     </span>
@@ -64,26 +105,30 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
 
           {/* Featured Image */}
           {post.featuredImage && (
-            <div className="mt-10 overflow-hidden rounded-[12px]">
+            <figure className="mt-10 overflow-hidden rounded-[12px]">
               <img
                 src={post.featuredImage}
                 alt={post.title}
+                loading={idx === 0 ? "eager" : "lazy"}
+                width={800}
+                height={450}
                 className="h-auto w-full object-cover"
               />
-            </div>
+              <figcaption className="sr-only">{post.title}</figcaption>
+            </figure>
           )}
 
           {/* Divider */}
           <div className="mx-auto mt-10 h-px w-16 bg-border" />
-        </section>
+        </article>
 
         {/* Content */}
-        <article className="pb-8">
+        <section aria-label="Blog post content">
           <div
             className="font-montserrat text-base leading-relaxed text-foreground md:text-lg"
             dangerouslySetInnerHTML={{ __html: post.htmlContent ?? "" }}
           />
-        </article>
+        </section>
 
         {/* Prev / Next Post Navigation */}
         {(prevPost || nextPost) && (
@@ -146,7 +191,7 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
 
         {/* Related Posts */}
         {related.length > 0 && (
-          <section className="py-16 md:py-24">
+          <section className="py-16 md:py-24" aria-label="Related posts">
             <SectionHeading title="Related Posts" subtitle="" />
             <div className="mt-8 grid gap-x-8 gap-y-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
@@ -154,12 +199,16 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
                   key={r.slug}
                   href={`/blog/${r.slug}`}
                   className="group cursor-pointer"
+                  aria-label={`Read more about ${r.title}`}
                 >
                   {r.featuredImage ? (
                     <div className="mb-4 overflow-hidden rounded-[12px]">
                       <img
                         src={r.featuredImage}
                         alt={r.title}
+                        loading="lazy"
+                        width={400}
+                        height={300}
                         className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
@@ -174,10 +223,11 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
         )}
 
         {/* Back to all blog posts */}
-        <section className="pb-16 pt-8 text-center">
+        <section className="pb-16 pt-8 text-center" aria-label="Navigation">
           <Link
             href="/blog"
             className="font-montserrat text-sm tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors duration-200 hover:text-accent hover:decoration-accent"
+            aria-label="Back to all blog posts"
           >
             &larr; Back to all posts
           </Link>
@@ -194,14 +244,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostBySlug(slug);
   if (!post) return {};
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+  const canonicalUrl = `${baseUrl}/blog/${slug}`;
+
   return {
-    title: `${post.title} | Jeffrey Andersen Photography`,
+    title: `${post.title} | Blog — Jeffrey Andersen Photography`,
     description: post.excerpt,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
-      images: post.featuredImage ? [{ url: post.featuredImage, alt: post.title }] : [],
+      url: canonicalUrl,
+      siteName: "Jeffrey Andersen Photography",
+      images: post.featuredImage ? [{ url: post.featuredImage, alt: post.title, width: 1200, height: 630 }] : [],
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }

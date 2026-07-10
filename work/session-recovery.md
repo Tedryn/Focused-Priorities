@@ -4,7 +4,7 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 6 COMPLETE — Blog Pages**
+**Phase 8 COMPLETE
 
 Completed components:
 1. Navigation (`components/Navigation.tsx`) — Client component, desktop + mobile hamburger

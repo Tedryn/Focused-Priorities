@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import Script from "next/script";
 import { loadGalleries, loadBlogPosts } from "@/lib/content";
 import GalleryCard from "@/components/GalleryCard";
 import BlogCard from "@/components/BlogCard";
@@ -8,9 +9,31 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Jeffrey Andersen — Photography",
+  title: "Jef — Photography",
   description:
-    "Capturing light, telling stories. A personal photography portfolio and journal by Jeffrey Andersen.",
+    "Capturing light, telling stories. A personal photography portfolio and journal by Jef.",
+  openGraph: {
+    title: "Jef — Photography",
+    description:
+      "Photography portfolio and journal by Jef — capturing light, telling stories.",
+    type: "website",
+    url: "/",
+    siteName: "Jef Photography",
+    images: [
+      {
+        url: "/images/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jef Photography — Featured image",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jef — Photography",
+    description:
+      "Photography portfolio and journal by Jef.",
+  },
 };
 
 export default async function HomePage() {
@@ -22,6 +45,26 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD: WebSite structured data */}
+      <Script
+        id="website-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Jef Photography",
+            url: "https://jeffreyandersenphotography.com",
+            description:
+              "Photography portfolio and journal by Jef.",
+            author: {
+              "@type": "Person",
+              name: "Jef",
+            },
+          }),
+        }}
+      />
+
       <Navigation />
 
       {/* Hero Section */}
@@ -31,7 +74,7 @@ export default async function HomePage() {
 
         <div className="relative z-10 text-center px-4 py-20 sm:px-6 lg:px-8">
           <h1 className="font-cormorant text-5xl font-normal tracking-wide text-foreground md:text-7xl lg:text-8xl">
-            Jeffrey Andersen
+            Jef
           </h1>
           <p className="mt-4 font-montserrat text-base tracking-[0.2em] uppercase text-muted md:text-lg">
             Photography
@@ -62,7 +105,7 @@ export default async function HomePage() {
       <main className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         {/* Recent Galleries Section */}
         {recentGalleries.length > 0 && (
-          <section className="py-16 md:py-24">
+          <section className="py-16 md:py-24" aria-label="Recent galleries">
             <SectionHeading title="Recent Work" subtitle="Selected galleries and collections" />
 
             <div className="mt-8 grid gap-x-8 gap-y-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -75,6 +118,7 @@ export default async function HomePage() {
                   featuredImage={gallery.featuredImage}
                   photos={gallery.photos}
                   date={gallery.date}
+                  priority
                 />
               ))}
             </div>
@@ -94,7 +138,7 @@ export default async function HomePage() {
 
         {/* Recent Blog Posts Section */}
         {recentPosts.length > 0 && (
-          <section className="py-16 md:py-24">
+          <section className="py-16 md:py-24" aria-label="Recent journal posts">
             <SectionHeading title="Journal" subtitle="Thoughts on photography and the process" />
 
             <div className="mt-8 space-y-8 max-w-[750px]">
@@ -127,7 +171,7 @@ export default async function HomePage() {
 
         {/* Empty state — when no content exists yet */}
         {recentGalleries.length === 0 && recentPosts.length === 0 && (
-          <section className="py-24 text-center">
+          <section className="py-24 text-center" aria-label="Coming soon">
             <p className="font-cormorant text-3xl font-normal tracking-wide text-muted md:text-4xl">
               Content coming soon.
             </p>

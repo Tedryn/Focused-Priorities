@@ -8,6 +8,7 @@ interface GalleryCardProps {
   featuredImage: string;
   photos: Array<{ src: string }>;
   date?: string;
+  priority?: boolean;
 }
 
 export default function GalleryCard({
@@ -17,7 +18,9 @@ export default function GalleryCard({
   featuredImage,
   photos,
   date,
+  priority = false,
 }: GalleryCardProps) {
+  const loadingAttr = priority ? "eager" : "lazy";
   return (
     <article className="group cursor-pointer">
       <Link href={`/gallery/${slug}`} className="block">
@@ -29,7 +32,7 @@ export default function GalleryCard({
               alt={title}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              loading="lazy"
+              loading={loadingAttr as "lazy" | "eager"}
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

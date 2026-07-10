@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { loadGalleries, getGalleryBySlug } from "@/lib/content";
 import GalleryCard from "@/components/GalleryCard";
@@ -30,6 +31,31 @@ function GalleryContent({ gallery, allGalleries }: { gallery: Gallery; allGaller
 
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD: ImageGallery structured data */}
+      <Script
+        id={`gallery-schema-${gallery.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageGallery",
+            name: gallery.title,
+            description: gallery.description,
+            url: `https://jeffreyandersenphotography.com/gallery/${gallery.slug}`,
+            contentLocation: {
+              "@type": "Place",
+              name: "United States",
+            },
+            creator: {
+              "@type": "Person",
+              name: "Jeffrey Andersen",
+            },
+            dateCreated: gallery.date,
+            image: gallery.photos.map((p) => p.src),
+          }),
+        }}
+      />
+
       <Navigation />
 
       <main className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
@@ -48,8 +74,8 @@ function GalleryContent({ gallery, allGalleries }: { gallery: Gallery; allGaller
             {gallery.tags && gallery.tags.length > 0 && (
               <>
                 <span className="text-border">·</span>
-                <div className="flex flex-wrap items-center gap-1.5 justify-center">
-                  {gallery.tags.map((tag) => (
+                <div className="flex flex-wrap items-center gap-1.5 justify-center" aria-label="Gallery tags">
+                  {gallery.tags!.map((tag) => (
                     <span key={tag} className="rounded-full border border-border px-3 py-0.5 text-xs tracking-wide">
                       {tag}
                     </span>
@@ -170,9 +196,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const gallery = await getGalleryBySlug(slug);
   if (!gallery) return {};
 
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+  const canonicalUrl = `${baseUrl}/gallery/${slug}`;
+
   return {
     title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
     description: gallery.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
+      description: gallery.description,
+      type: "website",
+      url: canonicalUrl,
+      siteName: "Jeffrey Andersen Photography",
+      images: [
+        {
+          url: gallery.featuredImage || "/images/og-gallery.jpg",
+          width: 1200,
+          height: 630,
+          alt: gallery.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
+      description: gallery.description,
+    },
   };
 }
 

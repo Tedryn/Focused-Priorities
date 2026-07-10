@@ -15,8 +15,33 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Jeffrey Andersen | Photography Portfolio',
-  description: 'Photography portfolio showcasing the work of Jeffrey Andersen.',
+  title: {
+    default: 'Jef — Photography',
+    template: '%s | Jef Photography',
+  },
+  description: 'Photography portfolio and journal by Jef — capturing light, telling stories.',
+  authors: [{ name: 'Jef' }],
+  creator: 'Jef',
+  publisher: 'Jef Photography',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://jeffreyandersenphotography.com'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    title: 'Jef — Photography',
+    description: 'Photography portfolio and journal by Jef — capturing light, telling stories.',
+    siteName: 'Jef Photography',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jef — Photography',
+    description: 'Photography portfolio and journal by Jef.',
+  },
 };
 
 export default function RootLayout({

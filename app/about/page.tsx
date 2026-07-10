@@ -4,16 +4,41 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionHeading from "@/components/SectionHeading";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+
 export const metadata: Metadata = {
-  title: "About — Jeffrey Andersen",
+  title: "About — Jef Photography",
   description:
-    "The story behind the lens. Learn about Jeffrey Andersen, a photographer based in the American Midwest capturing light and quiet moments.",
+    "The story behind the lens. Learn about Jef, a photographer based in the American Midwest capturing light and quiet moments.",
+  alternates: {
+    canonical: `${baseUrl}/about`,
+  },
+  openGraph: {
+    title: "About — Jef Photography",
+    description: "The story behind the lens. Learn about Jef.",
+    type: "website",
+    url: "/about",
+    siteName: "Jef Photography",
+    images: [
+      {
+        url: "/images/og-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About — Jef Photography",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Jef Photography",
+    description: "The story behind the lens.",
+  },
 };
 
 const portraitImage = "/images/portrait.jpg";
 
 const biographyParagraphs = [
-  `I'm Jeffrey Andersen — a photographer and writer working from the American Midwest. My work is an ongoing attempt to slow down long enough to see what's already there: the weight of afternoon light on a weathered wall, the quiet geometry of an empty street, the unguarded gestures that make up most of our days.`,
+  `I'm Jef — a photographer and writer working from the American Midwest. My work is an ongoing attempt to slow down long enough to see what's already there: the weight of afternoon light on a weathered wall, the quiet geometry of an empty street, the unguarded gestures that make up most of our days.`,
   `I shoot primarily on film with a Leica M6 and a Pentax KP. I believe the limits of a frame — thirty-six exposures a day, a single lens on your shoulder, the patience required to wait for things to reveal themselves — are not constraints but invitations. They force you to pay attention.`,
   `This website is a collection of galleries, some thoughts on the process, and an attempt to keep something honest in public.`,
 ];
@@ -59,7 +84,7 @@ export default async function AboutPage() {
             <div className="overflow-hidden rounded-[12px] border border-border">
               <img
                 src={portraitImage}
-                alt="Jeffrey Andersen, photographer"
+                alt="Jef, photographer"
                 width={560}
                 height={700}
                 className="h-full w-full object-cover"
@@ -73,7 +98,7 @@ export default async function AboutPage() {
                 About
               </p>
               <h1 className="mt-3 font-cormorant text-5xl font-normal tracking-wide text-foreground md:text-6xl lg:text-7xl">
-                Jeffrey Andersen
+                Jef
               </h1>
               <div className="my-8 h-px w-20 bg-border" />
               {biographyParagraphs.slice(0, 2).map((paragraph, index) => (
