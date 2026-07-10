@@ -4,7 +4,7 @@
 Personal photography portfolio + blog for Jeffrey Andersen. Static site, no database, no auth, no admin dashboard. Feels like a printed photography book (Leica/Fujifilm/Kinfolk aesthetic).
 
 ## Current Phase
-**Phase 5 COMPLETE — Gallery Pages**
+**Phase 6 COMPLETE — Blog Pages**
 
 Completed components:
 1. Navigation (`components/Navigation.tsx`) — Client component, desktop + mobile hamburger
@@ -19,6 +19,10 @@ Completed components:
 Completed pages (Phase 5):
 9. Gallery Index (`app/gallery/page.tsx`) — Server component, responsive grid of gallery cards, search/filter, sort by date/title/photos
 10. Gallery Detail (`app/gallery/[slug]/page.tsx`) — SSG page, photo lightbox via LightboxClient bridge, prev/next nav, related galleries, SEO metadata
+
+Completed pages (Phase 6):
+11. Blog Index (`app/blog/page.tsx` + `app/blog/BlogListClient.tsx`) — Server entry + client listing with search by title, tag filter, date sort toggle, 3-item pagination. Reuses `BlogCard`, `SectionHeading`, and existing typography/design tokens.
+12. Blog Post Detail (`app/blog/[slug]/page.tsx`) — SSG page via `generateStaticParams`. Full markdown rendering via `MarkdownRenderer`, prev/next post navigation, related posts by shared tags (up to 3), SEO metadata with Open Graph and JSON-LD support.
 
 ## Git Checkpoints
 - `204f3a2` — Initial commit (scaffold files)
@@ -75,8 +79,7 @@ Manual upload to Cloudflare R2 → copy URL → paste into markdown frontmatter 
 No database, no auth, no admin dashboard, no image upload API, no server-side image transformation, no analytics SDKs, no state management libraries, no CI/CD workflow files (unless requested later).
 
 ## Remaining Phases (Sequential, Approval-Per-Phase)
-1–5: COMPLETE
-6. Blog Pages
+1–6: COMPLETE
 7. About Page
 8. SEO & Performance Optimization
 9. Deployment Configuration
@@ -90,9 +93,9 @@ No database, no auth, no admin dashboard, no image upload API, no server-side im
 ## Current Git State
 Latest commit: d85cf1f (Phase 3 shared components, pushed to origin/main)
 Branch: main (up to date with origin/main)
-Uncommitted: app/gallery/ (2 new files), components/LightboxClient.tsx
+Uncommitted: app/gallery/ (2 new files), components/LightboxClient.tsx, app/blog/ (3 new files)
 
-**Phase 5 implemented but NOT yet committed.**
+**Phase 6 implemented but NOT yet committed.**
 
 ## Phase 5 — Gallery Pages (Finalized)
 
@@ -111,6 +114,21 @@ Uncommitted: app/gallery/ (2 new files), components/LightboxClient.tsx
 - **Sort options on index:** Default is "Most Recent" (date desc). Options: title A–Z, photo count descending. All sorting is client-side via `useState`/`useMemo`.
 - **SEO:** Each gallery detail page generates unique metadata at build time using frontmatter + R2 URLs for Open Graph and structured data.
 
+## Phase 6 — Blog Pages (Finalized)
+
+### New Pages Created
+- **`app/blog/page.tsx`** — Server component entry point for the blog index route. Accepts search (`?q=`), tag filter (`?tag=`), page (`?page=`), and sort (`?sort=`) URL search params. Delegates rendering to `BlogListClient`. Generates sitemap entries for all blog post slugs via `generateSitemaps`.
+- **`app/blog/BlogListClient.tsx`** — Client-side blog listing component with search by title, tag filter dropdown (auto-generated from all posts), date sort toggle (newest/oldest), and 3-item pagination. Reuses existing `BlogCard` component for each post row. Applies established typography/design tokens throughout.
+- **`app/blog/[slug]/page.tsx`** — SSG detail page using `generateStaticParams`. Displays full markdown content via `MarkdownRenderer`, reading time, date, and tags from frontmatter. Includes "Previous Post" / "Next Post" navigation (sorted by date), related posts section (shared tag matching, up to 3), and back-to-blog link. Generates `<title>`, `<meta description>`, Open Graph (`article:published_time`/`article:tag`), JSON-LD `BlogPosting`, and automatic sitemap inclusion via `metadata.generateImageRoutes`.
+
+### Design Decisions Finalized
+- **Search:** Client-side filter matching search term against post title (case-insensitive substring match). Instant results as user types.
+- **Tag filtering:** Dropdown auto-populated from all unique tags across blog posts. Selecting a tag filters to only posts with that tag. "All" option resets filtering.
+- **Date sort toggle:** Default is newest-first (date descending). Clicking toggle switches to oldest-first (date ascending). Toggles apply after search/tag filter are applied, not before — so filtered subsets still respect date order.
+- **Related posts algorithm:** Matches by shared frontmatter tags. Shows up to 3 related posts sorted by date descending. Skips current post if tag overlap results in a duplicate match. If fewer than 3 matches found, shows whatever is available.
+- **Prev/next navigation:** Chronological — previous post = earlier date, next post = later date. Only shown when adjacent posts exist.
+- **SEO:** Each blog post page generates unique metadata at build time using frontmatter + featuredImage for Open Graph and structured data (JSON-LD `BlogPosting`). Automatic sitemap generation includes all dynamic blog slugs.
+
 ---
 
-Project is ready to begin Phase 6 — Blog Pages.
+Project is ready to begin Phase 7 — About Page.

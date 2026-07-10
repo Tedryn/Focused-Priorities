@@ -183,12 +183,12 @@ Reading time is computed at build time from the markdown body using `reading-tim
 
 ## Current Phase
 
-**Phase 5: Gallery Pages — COMPLETE** (uncommitted)
+**Phase 6: Blog Pages — COMPLETE** (uncommitted)
 
-Gallery index page and gallery detail pages implemented. All TypeScript verified (`npx tsc --noEmit`) and production build verified (`npm run build`). **Not yet committed or pushed.**
+Blog index page and blog post detail pages implemented. All TypeScript verified (`npx tsc --noEmit`) and production build verified (`npm run build`). **Not yet committed or pushed.**
 
-| # | Component | File | Type | Features |
-|---|-----------|------|------|----------|
+| # | Component / Page | File | Type | Features |
+|---|------------------|------|------|----------|
 | 1 | Navigation | `components/Navigation.tsx` | Client | Desktop horizontal nav + mobile hamburger slide-down |
 | 2 | Footer | `components/Footer.tsx` | Server | Links · divider · copyright · GitHub badge |
 | 3 | SectionHeading | `components/SectionHeading.tsx` | Server | Cormorant Garamond heading + muted subtitle |
@@ -209,11 +209,11 @@ Gallery index page and gallery detail pages implemented. All TypeScript verified
 | 3 | Shared Components | COMPLETE (`d85cf1f`) |
 | 4 | Home Page | Not started |
 | 5 | Gallery Pages | **COMPLETE** (uncommitted) |
-| 6 | Blog Pages | Not started |
+| 6 | Blog Pages | **COMPLETE** (uncommitted) |
 | 7 | About Page | Not started |
 | 8 | SEO and Performance Optimization | Not started |
 | 9 | Deployment Configuration | Not started |
 
 Execution order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9. Each phase stops pending approval.
 
-Project is ready to begin Phase 6 — Blog Pages.
+Project is ready to begin Phase 7 — About Page.
