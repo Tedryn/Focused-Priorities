@@ -48,7 +48,7 @@ function GalleryContent({ gallery, allGalleries }: { gallery: Gallery; allGaller
             },
             creator: {
               "@type": "Person",
-              name: "Jeffrey Andersen",
+              name: "Jef",
             },
             dateCreated: gallery.date,
             image: gallery.photos.map((p) => p.src),
@@ -200,17 +200,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${baseUrl}/gallery/${slug}`;
 
   return {
-    title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
+    title: `${gallery.title} — Gallery Jef`,
     description: gallery.description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
+      title: `${gallery.title} — Gallery Jef`,
       description: gallery.description,
       type: "website",
       url: canonicalUrl,
-      siteName: "Jeffrey Andersen Photography",
+      siteName: "Jef",
       images: [
         {
           url: gallery.featuredImage || "/images/og-gallery.jpg",
@@ -222,7 +222,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${gallery.title} — Gallery | Jeffrey Andersen Photography`,
+      title: `${gallery.title} — Gallery Jef`,
       description: gallery.description,
     },
   };

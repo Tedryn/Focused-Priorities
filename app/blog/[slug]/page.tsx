@@ -45,11 +45,11 @@ function BlogPostContent({ post, allPosts }: { post: NonNullable<Awaited<ReturnT
     datePublished: post.date,
     author: {
       "@type": "Person",
-      name: "Jeffrey Andersen",
+      name: "Jef",
     },
     publisher: {
       "@type": "Organization",
-      name: "Jeffrey Andersen Photography",
+      name: "Jef",
       logo: {
         "@type": "ImageObject",
         url: "/images/logo.png",
@@ -248,7 +248,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `${baseUrl}/blog/${slug}`;
 
   return {
-    title: `${post.title} | Blog — Jeffrey Andersen Photography`,
+    title: `${post.title} | Blog Jef`,
     description: post.excerpt,
     alternates: {
       canonical: canonicalUrl,
@@ -258,7 +258,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       type: "article",
       url: canonicalUrl,
-      siteName: "Jeffrey Andersen Photography",
+      siteName: "Jef",
       images: post.featuredImage ? [{ url: post.featuredImage, alt: post.title, width: 1200, height: 630 }] : [],
       publishedTime: post.date,
     },
