@@ -50,18 +50,18 @@ const journeyParagraphs = [
 ];
 
 const equipmentItems = [
-  { name: "Leica M6", role: "Primary — 35mm rangefinder" },
-  { name: "Pentax KP", role: "Secondary — APS-C DSLR, low-light work" },
-  { name: "Olympus OM-4 Ti", role: "Weekend shooter — battered and beloved" },
-  { name: "Summicron 50mm f/2", role: "Everyday lens — the one I reach for" },
-  { name: "Summilux 35mm f/1.4", role: "Available light — streets, interiors" },
+  { name: "Minotla X-700", role: "Primary — 35mm rangefinder" },
+  { name: "Fed 2", role: "Secondary" },
+  { name: "K1000", role: "Tank" },
+  { name: "Helios 44", role: "Everyday lens — the one I reach for" },
+  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "Available light" },
 ];
 
 const filmStocks = [
-  "Kodak Portra 400",
-  "Kodak Tri-X 400",
+  "Ilford HP5 plus",
+  "Kodak XX",
   "Fujifilm C200",
-  "Ilford HP5 Plus",
+  "Kentmere 400",
   "Kodak Gold 200",
 ];
 
