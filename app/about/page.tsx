@@ -38,23 +38,23 @@ export const metadata: Metadata = {
 const portraitImage = "/images/portrait.jpg";
 
 const biographyParagraphs = [
-  `I'm Jef — a photographer and writer working from the American Midwest. My work is an ongoing attempt to slow down long enough to see what's already there: the weight of afternoon light on a weathered wall, the quiet geometry of an empty street, the unguarded gestures that make up most of our days.`,
-  `I shoot primarily on film with a Leica M6 and a Pentax KP. I believe the limits of a frame — thirty-six exposures a day, a single lens on your shoulder, the patience required to wait for things to reveal themselves — are not constraints but invitations. They force you to pay attention.`,
-  `This website is a collection of galleries, some thoughts on the process, and an attempt to keep something honest in public.`,
+  `I'm Jef — i specialize in blurry and deep fried film photography.`,
+  `I shoot primarily on film with a Minolta x-700 with m42 lenses.`,
+  `This website is a collection of galleries, some thoughts on the cameras I use, and a look into my mind hen it comes to creating somthing new.`,
 ];
 
 const journeyParagraphs = [
-  `I started taking photography seriously around 2015, after years of letting cameras sit on shelves next to other half-finished hobbies. Something shifted — maybe it was finding a roll of Portra 400 in the back of a jacket drawer and actually developing it instead of tossing the canister — and suddenly I was looking at the world differently.`,
-  `My early work was borrowed time. I picked up a battered Olympus OM-4 Ti from a estate sale, taught myself darkroom processing in a borrowed basement, and spent two years figuring out what film stock suited the kind of light I was chasing. By 2018 I'd settled into a practice: shoot on weekends when possible, edit slowly, and only print work I could live with on the wall for a year or more.`,
-  `These days I divide my time between personal projects and occasional commissions — editorial assignments for small publications, portrait sessions for people who want something that doesn't look like every other family photo. The camera hasn't changed much: still the M6, sometimes the KP, usually one lens. The intention has gotten sharper.`,
+  `I started my adventure in photography in 1999 as a freshman in high school, and currently only develope and print in black and white.`,
+  `I started with a K1000 and a few cheap kmount lenses, but developed a habit of acquiring old cameras and lenses. `,
+  `These days I divide my time between personal projects and the occasional concert.`,
 ];
 
 const equipmentItems = [
-  { name: "Minotla X-700", role: "Primary — 35mm rangefinder" },
+  { name: "Minotla X-700", role: "Primary" },
   { name: "Fed 2", role: "Secondary" },
-  { name: "K1000", role: "Tank" },
+  { name: "K1000", role: "Most reliable" },
   { name: "Helios 44", role: "Everyday lens — the one I reach for" },
-  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "Available light" },
+  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "wide angle" },
 ];
 
 const filmStocks = [
@@ -68,7 +68,7 @@ const filmStocks = [
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com/" },
   { label: "GitHub", href: "https://github.com/" },
-  { label: "Email", href: "mailto:hello@example.com" },
+  { label: "Email", href: "mailto:focusedprio@gmail.com" },
 ];
 
 export default async function AboutPage() {
@@ -194,9 +194,9 @@ export default async function AboutPage() {
           <SectionHeading title="Contact" subtitle="Get in touch" />
           <div className="mt-8 max-w-[750px]">
             <p className="font-montserrat text-[15px] leading-relaxed tracking-wide text-muted">
-              For commissions, collaborations, or just to say hello — reach me{" "}
+              reach me{" "}
               <Link
-                href="mailto:hello@example.com"
+                href="mailto:focusedprio@gmail.com"
                 className="text-accent underline decoration-border underline-offset-4 transition-colors duration-200 hover:text-accent/80 hover:decoration-accent"
               >
                 by email
