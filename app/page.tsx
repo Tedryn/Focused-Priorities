@@ -7,6 +7,7 @@ import BlogCard from "@/components/BlogCard";
 import SectionHeading from "@/components/SectionHeading";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Jef — Photography",
@@ -73,13 +74,14 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-card/30 to-background" />
 
         <div className="relative z-10 text-center px-4 py-20 sm:px-6 lg:px-8">
-          <h1 className="font-cormorant text-5xl font-normal tracking-wide text-foreground md:text-7xl lg:text-8xl">
-            Jef
-          </h1>
-          <p className="mt-4 font-montserrat text-base tracking-[0.2em] uppercase text-muted md:text-lg">
-            Photography
-          </p>
-
+         <Image
+  src="/images/fed2voi.jpg"
+  alt="Focused Priorities"
+  width={800}
+  height={250}
+  priority
+  className="mx-auto"
+/>
           {/* Divider line */}
           <div className="mx-auto mt-8 h-px w-16 bg-border" />
 

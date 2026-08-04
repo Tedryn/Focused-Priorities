@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -24,12 +25,15 @@ export default function Navigation() {
     <nav aria-label="Main navigation" className="w-full bg-background">
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-4 py-6 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link
-          href="/"
-          className="font-cormorant text-2xl font-semibold tracking-wide text-foreground transition-colors duration-200 hover:text-accent"
-        >
-           Jef
-        </Link>
+       <Link href="/">
+  <Image
+    src="/images/jeflogo.jpg"
+    alt="Focused Priorities"
+    width={40}
+    height={60}
+    priority
+  />
+</Link>
 
         {/* Desktop Links */}
         <div className="hidden items-center gap-8 md:flex">
