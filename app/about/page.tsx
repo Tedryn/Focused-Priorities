@@ -40,11 +40,11 @@ const portraitImage = "/images/portrait.jpg";
 const biographyParagraphs = [
   `I'm Jef — i specialize in blurry and deep fried film photography.`,
   `I shoot primarily on film with a Minolta x-700 with m42 lenses.`,
-  `This website is a collection of galleries, some thoughts on the cameras I use, and a look into my mind hen it comes to creating somthing new.`,
+  `This website is a collection of galleries, some thoughts on the cameras I use, and a look into my mind when it comes to creating somthing new.`,
 ];
 
 const journeyParagraphs = [
-  `I started my adventure in photography in 1999 as a freshman in high school, and currently only develope and print in black and white.`,
+  `I started my adventure in photography as a freshman in high school, and currently only develope and print in black and white.`,
   `I started with a K1000 and a few cheap kmount lenses, but developed a habit of acquiring old cameras and lenses. `,
   `These days I divide my time between personal projects and the occasional concert.`,
 ];
