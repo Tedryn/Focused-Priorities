@@ -39,22 +39,22 @@ const portraitImage = "/images/portrait.jpg";
 
 const biographyParagraphs = [
   `I'm Jef — i specialize in blurry and deep fried film photography.`,
-  `I shoot primarily on film with a Minolta x-700 with m42 lenses.`,
-  `This website is a collection of galleries, some thoughts on the cameras I use, and a look into my mind when it comes to creating somthing new.`,
+  `I shoot primarily on film with a Minolta X-700 with m42 lenses.`,
+  `This website is a collection of galleries, some thoughts on the cameras I use, and a look into my mind when it comes to creating something new.`,
 ];
 
 const journeyParagraphs = [
-  `I started my adventure in photography as a freshman in high school, and currently only develope and print in black and white.`,
-  `I started with a K1000 and a few cheap kmount lenses, but developed a habit of acquiring old cameras and lenses. `,
+  `I started my adventure in photography as a freshman in high school, and currently only develop and print in black and white.`,
+  `I started with a K1000 and a few cheap k-mount lenses, but developed a habit of acquiring old cameras and lenses. `,
   `These days I divide my time between personal projects and the occasional concert.`,
 ];
 
 const equipmentItems = [
-  { name: "Minotla X-700", role: "Primary" },
+  { name: "Minolta X-700", role: "Primary" },
   { name: "Fed 2", role: "Secondary" },
   { name: "K1000", role: "Most reliable" },
   { name: "Helios 44", role: "Everyday lens — the one I reach for" },
-  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "wide angle" },
+  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "latest purchase" },
 ];
 
 const filmStocks = [
