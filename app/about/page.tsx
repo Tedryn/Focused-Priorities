@@ -91,27 +91,6 @@ export default async function AboutPage() {
                 loading="eager"
               />
             </div>
-
-            {/* Introduction text */}
-            <div className="flex flex-col justify-center py-4">
-              <p className="font-montserrat text-xs tracking-[0.2em] uppercase text-muted">
-                About
-              </p>
-              <h1 className="mt-3 font-cormorant text-5xl font-normal tracking-wide text-foreground md:text-6xl lg:text-7xl">
-                Jef
-              </h1>
-              <div className="my-8 h-px w-20 bg-border" />
-              {biographyParagraphs.slice(0, 2).map((paragraph, index) => (
-                <p
-                  key={index}
-                  className={`font-montserrat text-[15px] leading-relaxed tracking-wide text-muted ${
-                    index === biographyParagraphs.length - 1 ? "" : "mb-6"
-                  }`}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
           </div>
         </section>
 
