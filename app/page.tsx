@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jef — Photography",
     description:
-      "Photography portfolio and journal by Jef — capturing light, telling stories.",
+      "A collection of photographs.",
     type: "website",
     url: "/",
     siteName: "Jef Photography",
@@ -55,7 +55,7 @@ export default async function HomePage() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "Jef Photography",
-            url: "https://jeffreyandersenphotography.com",
+            url: "https://focusedpriorities.com",
             description:
               "Photography portfolio and journal by Jef.",
             author: {

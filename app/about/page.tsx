@@ -9,13 +9,13 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://focusedpriorities.c
 export const metadata: Metadata = {
   title: "About — Jef Photography",
   description:
-    "The story behind the lens. Learn about Jef, a photographer based in the American Midwest capturing light and quiet moments.",
+    "A collection of photographsssss.",
   alternates: {
     canonical: `${baseUrl}/about`,
   },
   openGraph: {
     title: "About — Jef Photography",
-    description: "The story behind the lens. Learn about Jef.",
+    description: "About.",
     type: "website",
     url: "/about",
     siteName: "Jef Photography",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About — Jef Photography",
-    description: "The story behind the lens.",
+    description: "About.",
   },
 };
 
@@ -44,7 +44,7 @@ const biographyParagraphs = [
 ];
 
 const journeyParagraphs = [
-  `I started my adventure in photography in 1999 as a freshman in high school, and currently only develop and print in black and white.`,
+  `I started my adventure in photography as a freshman in high school, and currently only develop and print in black and white.`,
   `Throughout high school and college I used a K1000 and a few cheap k-mount lenses, but developed a habit of acquiring old cameras and lenses. `,
  
 ];
@@ -52,22 +52,18 @@ const journeyParagraphs = [
 const equipmentItems = [
   { name: "Minolta X-700", role: "Primary" },
   { name: "Fed 2", role: "Secondary" },
-  { name: "K1000", role: "Most reliable" },
-  { name: "Helios 44", role: "Everyday lens — the one I reach for" },
-  { name: "Voigtländer 15mm f/4.5 Super Wide-Heliar", role: "latest purchase" },
-];
+    { name: "Helios 44", role: "Everyday lens — the one I reach for" },
+  ];
 
 const filmStocks = [
   "Ilford HP5 plus",
   "Kodak XX",
-  "Fujifilm C200",
+  "Arista 400",
   "Kentmere 400",
-  "Kodak Gold 200",
+  "Rollei INFRARED",
 ];
 
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/" },
-  { label: "GitHub", href: "https://github.com/" },
   { label: "Email", href: "mailto:focusedprio@gmail.com" },
 ];
 
