@@ -75,7 +75,7 @@ export default async function HomePage() {
 
         <div className="relative z-10 text-center px-4 py-20 sm:px-6 lg:px-8">
          <Image
-  src="https://pub-442b55c6007744d585a90abfffacf60f.r2.dev/arista-400.jpg"
+  src="https://pub-442b55c6007744d585a90abfffacf60f.r2.dev/main%20site%20stuff/Fed2kent400.jpg"
   alt="Focused Priorities"
   width={800}
   height={250}
