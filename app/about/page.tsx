@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SectionHeading from "@/components/SectionHeading";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://focusedpriorities.com";
 
 export const metadata: Metadata = {
   title: "About — Jef Photography",
@@ -44,9 +44,9 @@ const biographyParagraphs = [
 ];
 
 const journeyParagraphs = [
-  `I started my adventure in photography as a freshman in high school, and currently only develop and print in black and white.`,
-  `I started with a K1000 and a few cheap k-mount lenses, but developed a habit of acquiring old cameras and lenses. `,
-  `These days I divide my time between personal projects and the occasional concert.`,
+  `I started my adventure in photography in 1999 as a freshman in high school, and currently only develop and print in black and white.`,
+  `Throughout high school and college I used a K1000 and a few cheap k-mount lenses, but developed a habit of acquiring old cameras and lenses. `,
+ 
 ];
 
 const equipmentItems = [

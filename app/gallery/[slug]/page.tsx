@@ -236,12 +236,6 @@ export default async function GalleryDetailPage({ params }: Props) {
     return notFound();
   }
 
-  // Validate featured image URL
-  try {
-    new URL(gallery.featuredImage);
-  } catch {
-    return notFound();
-  }
 
   const allGalleries = await loadGalleries();
 
