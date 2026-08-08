@@ -5,7 +5,7 @@ import SectionHeading from "@/components/SectionHeading";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jeffreyandersenphotography.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://focusedpriorities.com/";
 
 export const metadata: Metadata = {
   title: "Gallery — Jef Photography",
