@@ -6,8 +6,10 @@ featuredImage: https://images.focusedpriorities.com/gallery/gameboy/Melissa.png
 photos:
   - src: https://images.focusedpriorities.com/gallery/gameboy/Melissa.png
     caption: Test image
+
   - src: https://images.focusedpriorities.com/gallery/gameboy/Trichrome.png
     caption: Trichrome test
+
 tags:
   - test
 ---
